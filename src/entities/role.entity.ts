@@ -7,8 +7,8 @@ export class Role extends Document {
     @Prop({ required: true})
     name: string;
 
-    @Prop({ required: true, index: true })
-    access: Array<object>;
+    @Prop({type: Object})
+    access: {}; 
 }
 
 export const RoleSchema = SchemaFactory.createForClass(Role);

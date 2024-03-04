@@ -6,19 +6,26 @@ import { Restaurant } from './restaurant.entity';
 //Review Entity 
 @Schema()
 export class Review extends Document {
-  
-    @Prop({ type: MongooseSchema.Types.ObjectId, ref: User.name, index: true })
-    userId: MongooseSchema.Types.ObjectId;
 
-    @Prop({ type: MongooseSchema.Types.ObjectId, ref: Restaurant.name, index: true })
+    @Prop({ type: MongooseSchema.Types.ObjectId, ref: Restaurant.name, index: true, required: true })
     restaurantId: MongooseSchema.Types.ObjectId;
 
     @Prop({ required: true })
     rating: number;
 
-    @Prop({ required: true })
-    comment: string;
-
+    @Prop({ 
+        type: {
+            comment: String,
+            replies: [],
+            createdAt: { type: Date, default: Date.now }
+        },
+        default: {}
+    })
+    review: {
+        comment: String,
+        replies?: [],
+        createdAt?: Date
+    };
     @Prop({ default: Date.now })
     createdAt: Date;
 }

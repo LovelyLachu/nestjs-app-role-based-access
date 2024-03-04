@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Get, HttpStatus, Param, Post, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, HttpStatus, InternalServerErrorException, Param, Post, Res } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Response } from 'express';
 import { Connection, Schema as MongooseSchema } from 'mongoose';
@@ -37,4 +37,14 @@ export class UserController {
             throw new BadRequestException(error.message);
         }
     }
+
+    @Get("/import_roles")
+    async importRoles(){
+        try{
+            return this.userService.importRoles()
+        }catch(error){
+            throw new InternalServerErrorException(error.message);
+        }
+    }
+    
 }

@@ -1,13 +1,14 @@
-import { ConflictException, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { ConflictException, InternalServerErrorException, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { ClientSession, Model, Schema as MongooseSchema } from 'mongoose';
+import { Model } from 'mongoose';
+import * as bcrypt from 'bcrypt';
 import { User } from '../entities/user.entity';
-import { CreateUserDto } from '../modules/user/dto/create_user.dto';
+import { CreateUserDto, LoginUserDto } from '../modules/user/dto/create_user.dto';
 
 export class UserRepository {
     constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {}
 
-    async createUser(createUserDto: CreateUserDto, session: ClientSession) {
+    async createUser(createUserDto: CreateUserDto) {
         let user = await this.getUserByEmail(createUserDto.email);
 
         if (user) {
@@ -21,7 +22,7 @@ export class UserRepository {
         });
 
         try {
-            user = await user.save({ session });
+            user = await user.save();
         } catch (error) {
             throw new InternalServerErrorException(error);
         }
@@ -33,10 +34,23 @@ export class UserRepository {
         return user;
     }
 
+    async loginUser(loginUserDto: LoginUserDto){
+        let user = await this.getUserByEmail(loginUserDto.email);
+
+        if (!user) {
+            throw new ConflictException('Invalid credentials');
+        }
+        const passwordMatch = await bcrypt.compare(loginUserDto.password, user.password);
+        if (!passwordMatch) {
+            throw new UnauthorizedException('Invalid credentials');
+        }
+        return user;
+    }
+
     async getUserByEmail(email: string) {
         let user;
         try {
-            user = await this.userModel.findOne({ email }, 'name email img role').exec();
+            user = await this.userModel.findOne({ email }).exec();
         } catch (error) {
             throw new InternalServerErrorException(error);
         }

@@ -2,6 +2,7 @@ import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/commo
 import { JwtService } from '@nestjs/jwt';
 import { Request, Response, NextFunction } from 'express';
 
+//JWT middleware
 @Injectable()
 export class JwtMiddleware implements NestMiddleware {
   constructor(private readonly jwtService: JwtService) {}

@@ -61,7 +61,7 @@ export class RestaurantController {
     throw new InternalServerErrorException(error);
   }
   }
-
+  //Function for role access check
   async checkPermission(role, page, access){
     if(!role.access[page].includes(access)){
       throw new UnauthorizedException("Access Denied")

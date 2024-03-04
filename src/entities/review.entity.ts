@@ -3,6 +3,7 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 import { User } from './user.entity';
 import { Restaurant } from './restaurant.entity';
 
+//Review Entity 
 @Schema()
 export class Review extends Document {
   

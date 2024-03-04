@@ -1,0 +1,946 @@
+{
+	"info": {
+		"_postman_id": "cda625e0-a729-4646-9ca3-43e27839c93b",
+		"name": "Restaurant_web_application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19307488",
+		"_collection_link": "https://amp-developer-team.postman.co/workspace/My-Workspace~689fcc60-4aca-4aa8-8fe8-f9a6d0d78898/collection/19307488-cda625e0-a729-4646-9ca3-43e27839c93b?action=share&source=collection_link&creator=19307488"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login_user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mananlaksh20@gmail.com\",\r\n    \"password\":\"Welcome@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}user/login",
+							"host": [
+								"{{host}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login_user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"mananlaksh20@gmail.com\",\r\n    \"password\":\"Welcome@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}user/login",
+									"host": [
+										"{{host}}user"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "344"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"158-KQAZBU5lmZwYDxqQCzIUQ1wjV+M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:22:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjp7Il9pZCI6IjY1ZTU0ZWYyMmQyYzg2MzUxYzRjZDkxNSIsIm5hbWUiOiJBRE1JTiIsImFjY2VzcyI6eyJyZXN0YXVyYW50IjpbIkNSRUFURSIsIlJFQUQiLCJVUERBVEUiLCJERUxFVEUiXSwicmV2aWV3IjpbIkNSRUFURSIsIlJFQUQiLCJVUERBVEUiLCJERUxFVEUiXX0sIl9fdiI6MH0sImlhdCI6MTcwOTU3NjUzMX0.rSgJH2et9hF39HWgvUAgv-q379OMWSBAboxEBkMrz7k\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Lakshmanan\",\r\n    \"email\":\"mananlaksh22@gmail.com\",\r\n    \"role\":\"ADMIN\",// USER, OWNER\r\n    \"password\":\"Welcome@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}user/create_user",
+							"host": [
+								"{{host}}user"
+							],
+							"path": [
+								"create_user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create_user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Lakshmanan\",\r\n    \"email\":\"mananlaksh22@gmail.com\",\r\n    \"role\":\"ADMIN\",// USER, OWNER\r\n    \"password\":\"Welcome@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}user/create_user",
+									"host": [
+										"{{host}}user"
+									],
+									"path": [
+										"create_user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "360"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"168-ApVkoWMOryl4CUwfT7ILYPfW07M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:21:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Lakshmanan\",\n    \"email\": \"mananlaksh22@gmail.com\",\n    \"password\": \"$2b$10$tag9FBIX4BbRIqIjB01l7.ZkHxVO5GS.FohUw3jXhYetazv4wX8Wa\",\n    \"role\": {\n        \"_id\": \"65e54ef22d2c86351c4cd916\",\n        \"name\": \"OWNER\",\n        \"access\": {\n            \"restaurant\": [\n                \"CREATE\",\n                \"READ\",\n                \"UPDATE\",\n                \"DELETE\"\n            ],\n            \"review\": [\n                \"READ\",\n                \"UPDATE\"\n            ]\n        },\n        \"__v\": 0\n    },\n    \"_id\": \"65e61141883b366787ec9690\",\n    \"createdAt\": \"2024-03-04T18:21:53.541Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "restaurant",
+			"item": [
+				{
+					"name": "add_restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Restaurant 1\",\r\n  \"address\": \"123 Main Street\",\r\n  \"features\": [\"Outdoor seating\", \"Free Wi-Fi\", \"Live music\"],\r\n  \"menuItems\": [\r\n    {\r\n      \"name\": \"Burger\",\r\n      \"description\": \"Delicious beef burger with cheese and veggies\",\r\n      \"price\": 10.99,\r\n      \"imageUrl\": \"https://example.com/burger.jpg\"\r\n    },\r\n    {\r\n      \"name\": \"Pizza\",\r\n      \"description\": \"Authentic Italian pizza with your choice of toppings\",\r\n      \"price\": 12.99,\r\n      \"imageUrl\": \"https://example.com/pizza.jpg\"\r\n    }\r\n  ],\r\n  \"imageUrl\": \"https://example.com/restaurant.jpg\",\r\n  \"pricing\": \"Moderate\",\r\n  \"bookTablePhone\": \"+1234567890\",\r\n  \"callForOrderPhone\": \"+1987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}restaurants",
+							"host": [
+								"{{host}}restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add_request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Restaurant 4\",\r\n  \"address\": \"123 Main Street\",\r\n  \"features\": [\"Outdoor seating\", \"Free Wi-Fi\", \"Live music\"],\r\n  \"menuItems\": [\r\n    {\r\n      \"name\": \"Burger\",\r\n      \"description\": \"Delicious beef burger with cheese and veggies\",\r\n      \"price\": 10.99,\r\n      \"imageUrl\": \"https://example.com/burger.jpg\"\r\n    },\r\n    {\r\n      \"name\": \"Pizza\",\r\n      \"description\": \"Authentic Italian pizza with your choice of toppings\",\r\n      \"price\": 12.99,\r\n      \"imageUrl\": \"https://example.com/pizza.jpg\"\r\n    }\r\n  ],\r\n  \"imageUrl\": \"https://example.com/restaurant.jpg\",\r\n  \"pricing\": \"Moderate\",\r\n  \"bookTablePhone\": \"+1234567890\",\r\n  \"callForOrderPhone\": \"+1987654321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}restaurants",
+									"host": [
+										"{{host}}restaurants"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "761"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f9-Gaev41BBUOZsRn5Ar6+azYqHGbI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:23:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Restaurant 4\",\n    \"address\": \"123 Main Street\",\n    \"features\": [\n        \"Outdoor seating\",\n        \"Free Wi-Fi\",\n        \"Live music\"\n    ],\n    \"menuItems\": [\n        {\n            \"name\": \"Burger\",\n            \"description\": \"Delicious beef burger with cheese and veggies\",\n            \"price\": 10.99,\n            \"imageUrl\": \"https://example.com/burger.jpg\",\n            \"_id\": \"65e611b9d1d9f3b9ac9e18d2\",\n            \"createdAt\": \"2024-03-04T18:23:53.062Z\"\n        },\n        {\n            \"name\": \"Pizza\",\n            \"description\": \"Authentic Italian pizza with your choice of toppings\",\n            \"price\": 12.99,\n            \"imageUrl\": \"https://example.com/pizza.jpg\",\n            \"_id\": \"65e611b9d1d9f3b9ac9e18d3\",\n            \"createdAt\": \"2024-03-04T18:23:53.063Z\"\n        }\n    ],\n    \"imageUrl\": \"https://example.com/restaurant.jpg\",\n    \"pricing\": \"Moderate\",\n    \"bookTablePhone\": \"+1234567890\",\n    \"callForOrderPhone\": \"+1987654321\",\n    \"_id\": \"65e611b9d1d9f3b9ac9e18d1\",\n    \"createdAt\": \"2024-03-04T18:23:53.063Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "view_restaurants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"restaurantId\", jsonData[0]._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}restaurants",
+							"host": [
+								"{{host}}restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "view_restaurants",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}restaurants",
+									"host": [
+										"{{host}}restaurants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2566"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a06-m5Y8Y1vvrvHHhEgpuyO4A+YRG+M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:35:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"65e61173883b366787ec969a\",\n        \"name\": \"Restaurant 2\",\n        \"address\": \"123 Main Street\",\n        \"features\": [\n            \"Outdoor seating\",\n            \"Free Wi-Fi\",\n            \"Live music\"\n        ],\n        \"menuItems\": [\n            {\n                \"name\": \"Burger\",\n                \"description\": \"Delicious beef burger with cheese and veggies\",\n                \"price\": 10.99,\n                \"imageUrl\": \"https://example.com/burger.jpg\",\n                \"_id\": \"65e61173883b366787ec969b\",\n                \"createdAt\": \"2024-03-04T18:22:43.487Z\"\n            },\n            {\n                \"name\": \"Pizza\",\n                \"description\": \"Authentic Italian pizza with your choice of toppings\",\n                \"price\": 12.99,\n                \"imageUrl\": \"https://example.com/pizza.jpg\",\n                \"_id\": \"65e61173883b366787ec969c\",\n                \"createdAt\": \"2024-03-04T18:22:43.487Z\"\n            }\n        ],\n        \"imageUrl\": \"https://example.com/restaurant.jpg\",\n        \"pricing\": \"Moderate\",\n        \"bookTablePhone\": \"+1234567890\",\n        \"callForOrderPhone\": \"+1987654321\",\n        \"createdAt\": \"2024-03-04T18:22:43.487Z\",\n        \"reviews\": [\n            {\n                \"_id\": \"65e6145cd1d9f3b9ac9e18ec\",\n                \"restaurantId\": \"65e61173883b366787ec969a\",\n                \"rating\": 4,\n                \"review\": {\n                    \"comment\": \"Average shop this one\",\n                    \"replies\": [],\n                    \"_id\": \"65e6145cd1d9f3b9ac9e18ed\",\n                    \"createdAt\": \"2024-03-04T18:35:08.520Z\"\n                },\n                \"createdAt\": \"2024-03-04T18:35:08.520Z\",\n                \"__v\": 0\n            }\n        ]\n    },\n    {\n        \"_id\": \"65e6117e883b366787ec969f\",\n        \"name\": \"Restaurant 3\",\n        \"address\": \"123 Main Street\",\n        \"features\": [\n            \"Outdoor seating\",\n            \"Free Wi-Fi\",\n            \"Live music\"\n        ],\n        \"menuItems\": [\n            {\n                \"name\": \"Burger\",\n                \"description\": \"Delicious beef burger with cheese and veggies\",\n                \"price\": 10.99,\n                \"imageUrl\": \"https://example.com/burger.jpg\",\n                \"_id\": \"65e6117e883b366787ec96a0\",\n                \"createdAt\": \"2024-03-04T18:22:54.789Z\"\n            },\n            {\n                \"name\": \"Pizza\",\n                \"description\": \"Authentic Italian pizza with your choice of toppings\",\n                \"price\": 12.99,\n                \"imageUrl\": \"https://example.com/pizza.jpg\",\n                \"_id\": \"65e6117e883b366787ec96a1\",\n                \"createdAt\": \"2024-03-04T18:22:54.789Z\"\n            }\n        ],\n        \"imageUrl\": \"https://example.com/restaurant.jpg\",\n        \"pricing\": \"Moderate\",\n        \"bookTablePhone\": \"+1234567890\",\n        \"callForOrderPhone\": \"+1987654321\",\n        \"createdAt\": \"2024-03-04T18:22:54.789Z\",\n        \"reviews\": []\n    },\n    {\n        \"_id\": \"65e611b9d1d9f3b9ac9e18d1\",\n        \"name\": \"Restaurant 4\",\n        \"address\": \"123 Main Street\",\n        \"features\": [\n            \"Outdoor seating\",\n            \"Free Wi-Fi\",\n            \"Live music\"\n        ],\n        \"menuItems\": [\n            {\n                \"name\": \"Burger\",\n                \"description\": \"Delicious beef burger with cheese and veggies\",\n                \"price\": 10.99,\n                \"imageUrl\": \"https://example.com/burger.jpg\",\n                \"_id\": \"65e611b9d1d9f3b9ac9e18d2\",\n                \"createdAt\": \"2024-03-04T18:23:53.062Z\"\n            },\n            {\n                \"name\": \"Pizza\",\n                \"description\": \"Authentic Italian pizza with your choice of toppings\",\n                \"price\": 12.99,\n                \"imageUrl\": \"https://example.com/pizza.jpg\",\n                \"_id\": \"65e611b9d1d9f3b9ac9e18d3\",\n                \"createdAt\": \"2024-03-04T18:23:53.063Z\"\n            }\n        ],\n        \"imageUrl\": \"https://example.com/restaurant.jpg\",\n        \"pricing\": \"Moderate\",\n        \"bookTablePhone\": \"+1234567890\",\n        \"callForOrderPhone\": \"+1987654321\",\n        \"createdAt\": \"2024-03-04T18:23:53.063Z\",\n        \"reviews\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get_restaurant",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}restaurants/{{restaurantId}}",
+							"host": [
+								"{{host}}restaurants"
+							],
+							"path": [
+								"{{restaurantId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_restaurant",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}restaurants/{{restaurantId}}",
+									"host": [
+										"{{host}}restaurants"
+									],
+									"path": [
+										"{{restaurantId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "761"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f9-3oNNLV1t9FphRGSfBnSse3ha2Hs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:31:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65e61173883b366787ec969a\",\n    \"name\": \"Restaurant 2\",\n    \"address\": \"123 Main Street\",\n    \"features\": [\n        \"Outdoor seating\",\n        \"Free Wi-Fi\",\n        \"Live music\"\n    ],\n    \"menuItems\": [\n        {\n            \"name\": \"Burger\",\n            \"description\": \"Delicious beef burger with cheese and veggies\",\n            \"price\": 10.99,\n            \"imageUrl\": \"https://example.com/burger.jpg\",\n            \"_id\": \"65e61173883b366787ec969b\",\n            \"createdAt\": \"2024-03-04T18:22:43.487Z\"\n        },\n        {\n            \"name\": \"Pizza\",\n            \"description\": \"Authentic Italian pizza with your choice of toppings\",\n            \"price\": 12.99,\n            \"imageUrl\": \"https://example.com/pizza.jpg\",\n            \"_id\": \"65e61173883b366787ec969c\",\n            \"createdAt\": \"2024-03-04T18:22:43.487Z\"\n        }\n    ],\n    \"imageUrl\": \"https://example.com/restaurant.jpg\",\n    \"pricing\": \"Moderate\",\n    \"bookTablePhone\": \"+1234567890\",\n    \"callForOrderPhone\": \"+1987654321\",\n    \"createdAt\": \"2024-03-04T18:22:43.487Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "edit_restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"123456 Main Street\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}restaurants/{{restaurantId}}",
+							"host": [
+								"{{host}}restaurants"
+							],
+							"path": [
+								"{{restaurantId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit_restaurant",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"address\": \"123456 Main Street\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}restaurants/{{restaurantId}}",
+									"host": [
+										"{{host}}restaurants"
+									],
+									"path": [
+										"{{restaurantId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "764"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2fc-AUqJb96b9ZFJWoAZx/6mEiYYAEE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:30:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65e6116d883b366787ec9695\",\n    \"name\": \"Restaurant 1\",\n    \"address\": \"123456 Main Street\",\n    \"features\": [\n        \"Outdoor seating\",\n        \"Free Wi-Fi\",\n        \"Live music\"\n    ],\n    \"menuItems\": [\n        {\n            \"name\": \"Burger\",\n            \"description\": \"Delicious beef burger with cheese and veggies\",\n            \"price\": 10.99,\n            \"imageUrl\": \"https://example.com/burger.jpg\",\n            \"_id\": \"65e6116d883b366787ec9696\",\n            \"createdAt\": \"2024-03-04T18:22:37.051Z\"\n        },\n        {\n            \"name\": \"Pizza\",\n            \"description\": \"Authentic Italian pizza with your choice of toppings\",\n            \"price\": 12.99,\n            \"imageUrl\": \"https://example.com/pizza.jpg\",\n            \"_id\": \"65e6116d883b366787ec9697\",\n            \"createdAt\": \"2024-03-04T18:22:37.052Z\"\n        }\n    ],\n    \"imageUrl\": \"https://example.com/restaurant.jpg\",\n    \"pricing\": \"Moderate\",\n    \"bookTablePhone\": \"+1234567890\",\n    \"callForOrderPhone\": \"+1987654321\",\n    \"createdAt\": \"2024-03-04T18:22:37.053Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_restaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}restaurants/{{restaurantId}}",
+							"host": [
+								"{{host}}restaurants"
+							],
+							"path": [
+								"{{restaurantId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete_restaurant",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}restaurants/{{restaurantId}}",
+									"host": [
+										"{{host}}restaurants"
+									],
+									"path": [
+										"{{restaurantId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "764"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2fc-IgesmhhlT0HyHijOhrugrHDgjBc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:41:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65e61173883b366787ec969a\",\n    \"name\": \"Restaurant 2\",\n    \"address\": \"123456 Main Street\",\n    \"features\": [\n        \"Outdoor seating\",\n        \"Free Wi-Fi\",\n        \"Live music\"\n    ],\n    \"menuItems\": [\n        {\n            \"name\": \"Burger\",\n            \"description\": \"Delicious beef burger with cheese and veggies\",\n            \"price\": 10.99,\n            \"imageUrl\": \"https://example.com/burger.jpg\",\n            \"_id\": \"65e61173883b366787ec969b\",\n            \"createdAt\": \"2024-03-04T18:22:43.487Z\"\n        },\n        {\n            \"name\": \"Pizza\",\n            \"description\": \"Authentic Italian pizza with your choice of toppings\",\n            \"price\": 12.99,\n            \"imageUrl\": \"https://example.com/pizza.jpg\",\n            \"_id\": \"65e61173883b366787ec969c\",\n            \"createdAt\": \"2024-03-04T18:22:43.487Z\"\n        }\n    ],\n    \"imageUrl\": \"https://example.com/restaurant.jpg\",\n    \"pricing\": \"Moderate\",\n    \"bookTablePhone\": \"+1234567890\",\n    \"callForOrderPhone\": \"+1987654321\",\n    \"createdAt\": \"2024-03-04T18:22:43.487Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "add_review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"if(jsonData._id){\r",
+									"pm.collectionVariables.set(\"reviewId\", jsonData._id);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantId\":\"65e61173883b366787ec969a\",\r\n    \"rating\": 4,\r\n    \"review\":{\r\n        \"comment\": \"Average shop this one\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}review",
+							"host": [
+								"{{host}}review"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add_review",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"restaurantId\":\"65e61173883b366787ec969a\",\r\n    \"rating\": 4,\r\n    \"review\":{\r\n        \"comment\": \"Average shop this one\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}review",
+									"host": [
+										"{{host}}review"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-5DX5Pr1r9NJirczj0/HiGua778s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:38:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"restaurantId\": \"65e61173883b366787ec969a\",\n    \"rating\": 4,\n    \"review\": {\n        \"comment\": \"Average shop this one\",\n        \"replies\": [],\n        \"_id\": \"65e615339d944a10ff978b4e\",\n        \"createdAt\": \"2024-03-04T18:38:43.438Z\"\n    },\n    \"_id\": \"65e615339d944a10ff978b4d\",\n    \"createdAt\": \"2024-03-04T18:38:43.439Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "update_review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"replies\":\"Yes average only2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}review/{{reviewId}}",
+							"host": [
+								"{{host}}review"
+							],
+							"path": [
+								"{{reviewId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update_review",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"replies\":\"Yes average only\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}review/{{reviewId}}",
+									"host": [
+										"{{host}}review"
+									],
+									"path": [
+										"{{reviewId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "282"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11a-Vmn6/L83OkAFT9H1EiMXf7skNcc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:38:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65e615339d944a10ff978b4d\",\n    \"restaurantId\": \"65e61173883b366787ec969a\",\n    \"rating\": 4,\n    \"review\": {\n        \"comment\": \"Average shop this one\",\n        \"replies\": [\n            \"Yes average only\"\n        ],\n        \"_id\": \"65e615339d944a10ff978b4e\",\n        \"createdAt\": \"2024-03-04T18:38:43.438Z\"\n    },\n    \"createdAt\": \"2024-03-04T18:38:43.439Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}review/{{reviewId}}",
+							"host": [
+								"{{host}}review"
+							],
+							"path": [
+								"{{reviewId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete_review",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}review/{{reviewId}}",
+									"host": [
+										"{{host}}review"
+									],
+									"path": [
+										"{{reviewId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "282"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11a-crNa1uBoQ0eXmPo8+IWYLBJMvq4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Mar 2024 18:43:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65e6163b9d944a10ff978b5d\",\n    \"restaurantId\": \"65e61173883b366787ec969a\",\n    \"rating\": 4,\n    \"review\": {\n        \"comment\": \"Average shop this one\",\n        \"replies\": [\n            \"Yes average only\"\n        ],\n        \"_id\": \"65e6163b9d944a10ff978b5e\",\n        \"createdAt\": \"2024-03-04T18:43:07.655Z\"\n    },\n    \"createdAt\": \"2024-03-04T18:43:07.655Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "import_roles",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}user/import_roles",
+					"host": [
+						"{{host}}user"
+					],
+					"path": [
+						"import_roles"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if (pm.environment.has(\"token\")) {",
+					"    const token = pm.environment.get(\"token\");",
+					"    pm.request.headers.add({",
+					"        key: 'Authorization',",
+					"        value: `Bearer ${token}`",
+					"    });",
+					"} else {",
+					"    console.log(\"token\");",
+					"}",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "restaurantId",
+			"value": "65e5a864800a49a931a1b8ff"
+		},
+		{
+			"key": "reviewId",
+			"value": ""
+		}
+	]
+}

@@ -20,6 +20,15 @@ export class UserService {
 
     async authenticateUser(loginUserDto: LoginUserDto) {
         const loginUser = await this.userRepository.loginUser(loginUserDto)
-        return loginUser;
+        let role = {}
+        if(loginUser.role){
+            role = await this.roleRepository.getRoleById(loginUser.role)
+        }
+        return {...loginUser, role: role};
+    }
+
+    async importRoles(){
+        const importRoles = await this.roleRepository.create()
+        return importRoles
     }
 }

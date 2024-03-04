@@ -9,10 +9,10 @@
 $ minimum node version 18 is required
 
 #mongodb
-$ minimum mongodb version 4 is required or cloud mongo atlas required
+$ minimum mongodb version 4 is required or cloud mongo atlas is required
 
 #nestjs_global
-$ npm i -g @nestjs/cli
+$ npm i -g @nestjs/cli 
 
 #install
 $ npm install
@@ -23,9 +23,13 @@ $ npm install
 ```bash
 # postman_collection
 $ import postman_collection.json file to your postman
+# Used global variable for host
+# Auto setup done for login api token
+# Auto setup done variable for reviewId and restaurantId
 
 # import_roles
 $ initial run /import_roles API to add roles into your database
+# it will delete the old roles and will add the exact roles
 ```
 
 

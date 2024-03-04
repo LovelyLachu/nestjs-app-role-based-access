@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
 import { Role } from './role.entity';
 
+//User Entity
 @Schema()
 export class User extends Document {
     @Prop({ required: true})
